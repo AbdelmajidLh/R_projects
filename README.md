@@ -41,3 +41,18 @@ docker stop f88e32aed446
 # relancer un autre contenaire hello-world (existant sur le docker hub)
 docker run hello-world
 ```
+
+## Démarrer un serveur Nginx avec un conteneur Docker
+Lancer un conteneur qui démarre un serveur Nginx :
+```
+docker run -d -p 8080:80 nginx
+```
+
+* `-d` pour détacher le conteneur (possibilité de lancer d'autres conteneurs)
+* `-p` pour définir l'utilisation de ports (transferer le trafic du port 8080 vers le port 80 du conteneur. La page par défaut est : `https://127.0.0.1:8080`
+
+Pour vérifier si le conteneur a démarré : `docker ps` :
+* Aller sur firefox et utilise ce lien : `http://127.0.0.1:8080/`
+
+## Sources
+[Optimiser votre déploiement en créant des conteneurs avec Docker]()
