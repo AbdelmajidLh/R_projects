@@ -1,7 +1,8 @@
+<div style="background-color: #ADD8E6; padding: 10px; border-radius: 5px;">
 # Introduction à Docker
 
-L'objectif de ce repository est de vous montrer comment manipuler (télécharger, démarrer, arrêter, ...) des conteneurs docker sous Linux (Ubuntu)
-
+Docker est un outil très puissant qui permet aux développeurs et aux administrateurs système de créer, déployer et exécuter des applications à l'aide de conteneurs. Les conteneurs Docker sont des environnements isolés qui partagent le système d'exploitation et les ressources du système hôte, ce qui permet aux applications d'être executées plus rapidement et plus facilement. Ce tutoriel vous aidera à comprendre les bases de Docker et à apprendre à créer et à déployer des applications dans des conteneurs.
+</div>
 
 ## Les commandes de base de docker
 ```
