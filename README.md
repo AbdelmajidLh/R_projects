@@ -135,6 +135,44 @@ Pour visualiser le résultat en direct, aller dans `http://127.0.0.1:8080` <br>
 
 Pour sortir du contenair et retourner sur votre machine : `exit` ou bien cliquez `ctr+D`.
 
+## Arrêter un conteneur Docker
+La commande `docker run -d ... ` permet de lancer un conteneur en mode **--detach**. Pour arreter le conteneur, utilisez : <br>
+```
+docker stop ID_du_conteneur
+```
 
+Pour supprimer le conteneur arrêté (détruire son contenu): <br>
+```
+docker rm ID_du_conteneur
+```
+
+
+## Télécharger une image du Docker Hub sans lancer le onteneur
+```
+docker pull hello-world
+```
+
+## Nettoyer le système
+Pour supprimer une image Docker : <br>
+```
+docker rmi <image_name>
+
+# pour forcer la suppression
+docker rmi -f <image_name>
+
+# exemple
+docker rmi -f hello_world
+
+# verifier la suppression
+docker images -a
+```
+
+Vous pouvez aussi laisser Docker faire le ménage en utilisant cette commande : <br>
+
+```
+docker system prune
+```
+
+* La commande va suprimer l'ensemble des conteneurs arrếtés (**not running**), les réseaux créés par Docker et qui ne sont pas utilisés par les conteneurs, les images Docker non utilisées et les caches utilisés pour la création d'images Docker.
 ## Sources
 [Optimiser votre déploiement en créant des conteneurs avec Docker]()
