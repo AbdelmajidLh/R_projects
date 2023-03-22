@@ -43,7 +43,7 @@ docker run hello-world
 ```
 
 ## Démarrer un serveur Nginx avec un conteneur Docker
-Lancer un conteneur qui démarre un serveur Nginx :
+Lancer un conteneur qui démarre un serveur Nginx et transferer le trafic du port 8080 sur le port 80 du conteneur:
 ```
 docker run -d -p 8080:80 nginx
 ```
@@ -53,6 +53,88 @@ docker run -d -p 8080:80 nginx
 
 Pour vérifier si le conteneur a démarré : `docker ps` :
 * Aller sur firefox et utilise ce lien : `http://127.0.0.1:8080/`
+
+Pour voir le contenu du conteneur et pouvoir le modifier sous bash (-ti):
+
+```
+docker exec -ti ID_du_conteneur bash
+```
+Une fois dans le contenair, vous pouvez modifier le fichier de base `/usr/share/nginx/html/index.html` et voir le résultat sur l'adresse  : `http://127.0.0.1:8080`.
+
+```
+# installer nano ou vim dans le conteneur
+apt-get update
+apt-get install nano
+
+# ouvrir le fichier html 
+nano /usr/share/nginx/html/index.html
+```
+
+Modifier le fichier (ex. remplacer le contenu du fichier par) :
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Abdelmajid EL HOU - Data Analyst & Scientist</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: sans-serif;
+        }
+        .header {
+            background-color: #0099ff;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            margin: auto;
+            width: 800px;
+        }
+        .tutorial {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 10px;
+        }
+        .data-science {
+            background-color: #0099ff;
+            padding: 20px;
+            color: #ffffff;
+            margin-top: 10px;
+        }
+        .eportfolio {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Abdelmajid EL HOU - Data Analyst & Scientist</h1>
+    </div>
+    <div class="container">
+        <div class="tutorial">
+            <h2>Docker Tutorial</h2>
+            <p>Learn how to use Docker to create and manage containers.</p>
+        </div>
+        <div class="data-science">
+            <h2>Data Science Content</h2>
+            <p>Explore the world of data science with tips, tutorials and resources.</p>
+        </div>
+        <div class="eportfolio">
+            <h2>My ePortfolio</h2>
+            <p>Check out my ePortfolio <a href="https://abdelmajidlh.github.io/ePortfolio/">here</a>.</p>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+Pour visualiser le résultat en direct, aller dans `http://127.0.0.1:8080` <br>
+
+Pour sortir du contenair et retourner sur votre machine : `exit` ou bien cliquez `ctr+D`.
+
 
 ## Sources
 [Optimiser votre déploiement en créant des conteneurs avec Docker]()
